@@ -1,0 +1,69 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+<h1 class="container" id="root"></h1>
+<div class="container">
+<button class="btn btn-info btn-lg" name="Stop" onClick="toggleTimer(false);">Stop Clock</button>
+<button class="btn btn-dark btn-lg" name="Start" onClick="toggleTimer(true);">Start Clock</button>
+</div>
+</body>
+</html>
+
+
+<script>
+var clock = true;
+
+const timer = setInterval(runClock, 1000);
+
+function runClock(){
+	if (clock === true){
+		const date = new Date().toLocaleTimeString();
+		const output = document.getElementById("root");
+		output.innerHTML = date;
+
+	}else{
+ 		return;
+	}
+}
+
+
+function toggleTimer(e){
+	if(e === true){
+		console.log("Toggle On!");
+		clock = true;
+	}else{
+		console.log("Toggle off!");
+		clock = false;
+	}
+}
+
+
+</script>
+
+
+<style>
+#root {
+background: black; 
+color: #42f5e9;
+text-align: center;
+font-size: 10rem;
+font-family: 'digital-clock-font', Times, Arial;
+border-radius: 50px;
+padding: 5px;
+}
+
+@font-face{
+ font-family:'digital-clock-font';
+ src: url('./digital-7.italic.ttf');
+}
+button {
+align-content: center;
+text-align: center;
+padding-top: 0px;
+}
+div {
+align-items: center;
+}
+</style>
